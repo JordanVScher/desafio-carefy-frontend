@@ -5,21 +5,21 @@ import Form from './components/Form';
 import Grid from './components/Grid';
 import GlobalStyle from './styles/global';
 import 'react-toastify/dist/ReactToastify.css';
-import { populateUserGrid } from './utils/populate';
+import { populatePatientsGrid } from './utils/populate';
 
 function App() {
-  const [users, setUsers] = useState([]);
+  const [patients, setPatients] = useState([]);
 
   useEffect(() => {
-    populateUserGrid(setUsers);
-  }, [setUsers]);
+    populatePatientsGrid(setPatients);
+  }, [setPatients]);
 
   return (
     <>
       <Container>
         <Title>PACIENTES</Title>
         <Form />
-        <Grid users={users} />
+        <Grid patients={patients} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
       <GlobalStyle />

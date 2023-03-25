@@ -5,7 +5,7 @@ import {
   Table, Thead, Tbody, Tr, Th, Td,
 } from '../styles/grid';
 
-function Grid({ users }) {
+function Grid({ patients }) {
   return (
     <Table>
       <Thead>
@@ -17,7 +17,7 @@ function Grid({ users }) {
         </Tr>
       </Thead>
       <Tbody>
-        {users.map((item) => (
+        {patients.map((item) => (
           <Tr key={item.id}>
             <Td width="30%">{item.name}</Td>
             <Td width="30%">{item.email}</Td>
