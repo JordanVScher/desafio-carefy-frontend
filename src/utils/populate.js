@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { getPatients } from './request';
+import { deletePatient, getPatients } from './request';
 
 export const populatePatientsGrid = (setPatients) => { // eslint-disable-line
   getPatients(1, 50)
@@ -9,4 +9,17 @@ export const populatePatientsGrid = (setPatients) => { // eslint-disable-line
     .catch((error) => {
       toast.error(error);
     });
+};
+
+export const handleDelete = async (setOnEdit, setPatients, patients, idToDelete) => {
+  deletePatient(idToDelete)
+    .then((data) => {
+      const newArray = patients.filter((patient) => patient._id.toString() !== idToDelete);
+
+      setPatients(newArray);
+      toast.success(data);
+    })
+    .catch((error) => toast.error(error));
+
+  setOnEdit(null);
 };

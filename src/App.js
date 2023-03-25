@@ -9,6 +9,7 @@ import { populatePatientsGrid } from './utils/populate';
 
 function App() {
   const [patients, setPatients] = useState([]);
+  const [onEdit, setOnEdit] = useState(null); // eslint-disable-line
 
   useEffect(() => {
     populatePatientsGrid(setPatients);
@@ -19,7 +20,7 @@ function App() {
       <Container>
         <Title>PACIENTES</Title>
         <Form />
-        <Grid patients={patients} />
+        <Grid patients={patients} setOnEdit={setOnEdit} setPatients={setPatients} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
       <GlobalStyle />
