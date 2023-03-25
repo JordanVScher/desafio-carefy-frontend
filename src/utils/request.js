@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { BACKEND_URL } from '../config/env';
 
-const baseUrl = 'http://localhost:3500';
+const baseUrl = BACKEND_URL;
 const patientUrl = `${baseUrl}/patient`;
 
 export const getUsers = async (page, limit) => { // eslint-disable-line
