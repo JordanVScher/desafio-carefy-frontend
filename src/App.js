@@ -5,7 +5,7 @@ import Form from './components/Form';
 import Grid from './components/Grid';
 import GlobalStyle from './styles/global';
 import 'react-toastify/dist/ReactToastify.css';
-import { populatePatientsGrid } from './utils/populate';
+import { populatePatientsGrid } from './utils/actions';
 
 function App() {
   const [patients, setPatients] = useState([]);

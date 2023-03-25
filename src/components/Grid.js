@@ -4,7 +4,7 @@ import { FaTrash, FaEdit } from 'react-icons/fa';
 import {
   Table, Thead, Tbody, Tr, Th, Td,
 } from '../styles/grid';
-import { handleDelete } from '../utils/populate';
+import { handleDelete } from '../utils/actions';
 
 function Grid({ patients, setOnEdit, setPatients }) {
   return (
