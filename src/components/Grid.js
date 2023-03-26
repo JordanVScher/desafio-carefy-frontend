@@ -1,12 +1,14 @@
-// import React from 'react';
 import { FaTrash, FaEdit } from 'react-icons/fa';
-
+import { handleDelete } from '../utils/actions';
 import {
   Table, Thead, Tbody, Tr, Th, Td,
 } from '../styles/grid';
-import { handleDelete } from '../utils/actions';
 
-function Grid({ patients, setOnEdit, setPatients }) {
+function Grid({ patients, setPatients, setOnEdit }) {
+  const handleEdit = (item) => {
+    setOnEdit(item);
+  };
+
   return (
     <Table>
       <Thead>
@@ -23,7 +25,7 @@ function Grid({ patients, setOnEdit, setPatients }) {
             <Td width="30%">{item.name}</Td>
             <Td width="30%">{item.email}</Td>
             <Td alignCenter width="5%">
-              <FaEdit />
+              <FaEdit onClick={() => handleEdit(item)} />
             </Td>
             <Td alignCenter width="5%">
               <FaTrash onClick={() => handleDelete(setOnEdit, setPatients, patients, item._id)} />

@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import { deletePatient, getPatients } from './request';
 
-export const populatePatientsGrid = (setPatients) => { // eslint-disable-line
+export const populatePatientsGrid = (setPatients) => {
   getPatients(1, 50)
     .then((data) => {
       setPatients(data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));

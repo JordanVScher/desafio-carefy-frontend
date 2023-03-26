@@ -6,10 +6,11 @@ import Grid from './components/Grid';
 import GlobalStyle from './styles/global';
 import 'react-toastify/dist/ReactToastify.css';
 import { populatePatientsGrid } from './utils/actions';
+import { getPatients } from './utils/request';
 
 function App() {
   const [patients, setPatients] = useState([]);
-  const [onEdit, setOnEdit] = useState(null); // eslint-disable-line
+  const [onEdit, setOnEdit] = useState(null);
 
   useEffect(() => {
     populatePatientsGrid(setPatients);
@@ -19,8 +20,8 @@ function App() {
     <>
       <Container>
         <Title>PACIENTES</Title>
-        <Form />
-        <Grid patients={patients} setOnEdit={setOnEdit} setPatients={setPatients} />
+        <Form onEdit={onEdit} setOnEdit={setOnEdit} getPatients={getPatients} />
+        <Grid setOnEdit={setOnEdit} patients={patients} setPatients={setPatients} />
       </Container>
       <ToastContainer autoClose={3000} position={toast.POSITION.BOTTOM_LEFT} />
       <GlobalStyle />

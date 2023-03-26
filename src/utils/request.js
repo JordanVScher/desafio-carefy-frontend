@@ -13,3 +13,13 @@ export const deletePatient = async (id) => {
   const { data } = await axios.delete(`${patientUrl}/${id}`);
   return data;
 };
+
+export const updatePatient = async (id, newData) => {
+  const { data } = await axios.patch(`${patientUrl}/${id}`, newData);
+  return data;
+};
+
+export const createPatient = async (newData) => {
+  const { data } = await axios.post(`${patientUrl}`, newData);
+  return data;
+};
