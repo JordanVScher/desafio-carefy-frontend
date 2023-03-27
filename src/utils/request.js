@@ -3,6 +3,7 @@ import { BACKEND_URL } from '../config/env';
 
 const baseUrl = BACKEND_URL;
 const patientUrl = `${baseUrl}/patient`;
+const authUrl = `${baseUrl}/auth`;
 
 export const getPatients = async (page, limit) => {
   const { data } = await axios.get(`${patientUrl}?page=${page}&limit=${limit}`);
@@ -21,5 +22,10 @@ export const updatePatient = async (id, newData) => {
 
 export const createPatient = async (newData) => {
   const { data } = await axios.post(`${patientUrl}`, newData);
+  return data;
+};
+
+export const getAccessToken = async (code) => {
+  const { data } = await axios.get(`${authUrl}/getAccessToken?code=${code}`);
   return data;
 };
